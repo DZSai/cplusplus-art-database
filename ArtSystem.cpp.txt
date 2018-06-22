@@ -1,0 +1,133 @@
+/*
+ * Artsystem.cpp
+ *
+ *  Created on: Nov 6, 2017
+ *      Author: David
+ */
+
+#include "ArtSystem.hpp"
+
+ArtSys::ArtSys() {
+	martistName = "";
+	martTitle = "";
+	myear = 0;
+	mmedia = "";
+	mgenre = "";
+	mlocation = 0;
+	mstatus = 0;
+	mvalue = 0;
+	mspecialInt = "";
+}
+
+ArtSys::ArtSys(string artistName, string artTitle, time_t year, string media,
+		string genre, int location, int status, int value, string specialInt) {
+	martistName = artistName;
+	martTitle = artTitle;
+	myear = year;
+	mmedia = media;
+	mgenre = genre;
+	mlocation = location;
+	mstatus = status;
+	mvalue = value;
+	mspecialInt = specialInt;
+}
+
+int ArtSys::removeArt() {
+    putStatus(0);
+    return mstatus;
+}
+
+int ArtSys::moveArt() {
+    int d = 0;
+    cout << "change art's location: ";
+    cin >> d;
+    putLocation(d);
+    return mlocation;
+}
+void ArtSys::printArt() {
+	cout << martistName << endl;
+	cout << martTitle << endl;
+	cout << myear << endl;
+	cout << mmedia << endl;
+	cout << mgenre << endl;
+	cout << mlocation << endl;
+	cout << mstatus << endl;
+	cout << mvalue << endl;
+	cout << mspecialInt << endl;
+}
+void ArtSys::addArt() {
+    string a = "";
+    time_t b = 0000;
+    int d = 0;
+    cout << "add artist name: ";
+    cin.ignore(256,'\n');
+    getline(cin, a);
+    putArtistName(a);
+    a = "";
+    cout << "add art title: ";
+    getline(cin, a);
+    putArtTitle(a);
+    a = "";
+    cout << "add art's year of creation: ";
+    cin >> b;
+    putYear(b);
+    cout << "add art's media: ";
+    cin.ignore(256,'\n');
+    getline(cin, a);
+    putMedia(a);
+    a = "";
+    cout << "add art's genre: ";
+    getline(cin, a);
+    putGenre(a);
+    a = "";
+    cout << "add art's location: ";
+    cin >> d;
+    putLocation(d);
+    cout << "add art's status: ";
+    cin >> d;
+    putStatus(d);
+    cout << "add art's value: ";
+    cin >> d;
+    putValue(d);
+    cout << "add art's special instructions if any: ";
+    cin.ignore(256,'\n');
+    getline(cin, a);
+    putSpecialInt(a);
+    a = "";
+    cout << endl;
+}
+void ArtSys::putArtistName(string a) {
+	martistName = a;
+}
+
+void ArtSys::putArtTitle(string a) {
+	martTitle = a;
+}
+
+void ArtSys::putYear(time_t b) {
+	myear = b;
+}
+
+void ArtSys::putMedia(string a) {
+	mmedia = a;
+}
+
+void ArtSys::putGenre(string a) {
+	mgenre = a;
+}
+
+void ArtSys::putLocation(int c) {
+	mlocation = c;
+}
+
+void ArtSys::putStatus(int c) {
+	mstatus = c;
+}
+
+void ArtSys::putValue(int c) {
+	mvalue = c;
+}
+
+void ArtSys::putSpecialInt(string a) {
+	mspecialInt = a;
+}

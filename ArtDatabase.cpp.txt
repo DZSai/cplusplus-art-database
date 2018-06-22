@@ -1,0 +1,65 @@
+//============================================================================
+// Name        : ArtDatabase.cpp
+// Author      : David Zych
+// Version     :
+// Copyright   : Your copyright notice
+// Description : Art Storage system to store art in C++, Ansi-style
+//============================================================================
+
+#include <iostream>
+#include "ArtSystem.hpp"
+using namespace std;
+
+int main() {
+    ArtSys arrayStorage[25];
+    ArtSys def;
+    ArtSys start("Name", "Title", 0000, "Media", "Genre", 0, 0, 0,
+                 "Special Instruction");
+    arrayStorage[0] = *new ArtSys("Leonardo da Vinci", "Mona Lisa", 1503,
+                                  "Oil on Canvas", "Renaissance", 1, 1, 1000000, "N/A");
+    arrayStorage[1] = *new ArtSys("Vincent van Gogh", "The Starry Night", 1889,
+                                  "Oil on Canvas", "Post-Impressionism", 2, 1, 1000000, "N/A");
+    arrayStorage[2] = *new ArtSys("Michelangelo", "The Creation of Adam", 1512,
+                                  "Paint/Plaster", "Renaissance", 3, 1, 1000000, "N/A");
+    arrayStorage[3] = *new ArtSys("Grant Wood", "American Gothic", 1930,
+                                  "Oil on Beaverboard", "Modernism", 4, 1, 1000000, "N/A");
+    arrayStorage[4] = *new ArtSys("Sandro Botticelli", "The Birth of Venus", 1486,
+                                  "Panel Painting", "Renaissance", 5, 1, 1000000, "N/A");
+    
+    for(int x = 0; x < 25; x++) {
+        arrayStorage[x].printArt();
+    }
+    string a = "";
+    time_t b = 0000;
+    int d = 0;
+    for(;;) {
+        int x = 0;
+        char c = '\0';
+        cout << "Specify what part of the wall you want to see (Starting from 0 - 24): " << endl;
+        cin >> x;
+        cout << "Input from the set of options ('a' to move art to a different location, 'b' to remove art from the wall, 'c' to print the entire wall, 'd' to add art to the selected slot on the wall, 'x' to print the finalized array and terminate the program): " << endl;
+        cin >> c;
+        if(c == 'x')
+            break;
+        switch (c) {
+            case 'a': //moveArt
+                arrayStorage[x].moveArt();
+                break;
+            case 'b': // removeArt
+                arrayStorage[x].removeArt();
+                break;
+            case 'c': //printArt
+                for(int x = 0; x < 25; x++) {
+                    arrayStorage[x].printArt();
+                }
+                break;
+            case 'd': //addArt
+                arrayStorage[x].addArt();
+                break;
+        }
+    }
+    for(int x = 0; x < 25; x++) {
+        arrayStorage[x].printArt();
+    }
+    return 0;
+}

@@ -1,0 +1,51 @@
+/*
+ * ArtSystem.hpp
+ *
+ *  Created on: Nov 6, 2017
+ *      Author: David
+ */
+
+#ifndef ARTSYSTEM_HPP_
+#define ARTSYSTEM_HPP_
+
+#include <iostream>
+#include <fstream>
+#include <iomanip>
+#include <sstream>
+#include <time.h>
+#include <string>
+
+using namespace std;
+
+class ArtSys {
+private:
+	string martistName;
+	string martTitle;
+	time_t myear;
+	string mmedia;
+	string mgenre;
+	int mlocation;
+	int mstatus;
+	int mvalue;
+	string mspecialInt;
+public:
+	ArtSys();
+	ArtSys(string artistName, string artTitle, time_t year, string media,
+			string genre, int location, int status, int value,
+			string specialInt);
+    int moveArt();
+    int removeArt();
+	void printArt();
+    void addArt();
+	void putArtistName(string a);
+	void putArtTitle(string a);
+	void putYear(time_t b);
+	void putMedia(string a);
+	void putGenre(string a);
+	void putLocation(int c);
+	void putStatus(int c);
+	void putValue(int c);
+	void putSpecialInt(string a);
+};
+
+#endif /* ARTSYSTEM_HPP_ */
